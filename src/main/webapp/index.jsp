@@ -27,8 +27,8 @@
 </h4>
 <form action="/" name="registration">
     <input type="text" id="input_name" name="name" required size="20" maxlength="20">
-    <button type="submit" onclick="Дописать_логику_перехода">Присоединиться</button>
-</form>
+    <input type="button" value="Присоединиться" onclick='location.href ="hello-servlet"'>
+   </form>
 <br>
 <a href="hello-servlet">Hello Servlet</a>
 </body>
