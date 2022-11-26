@@ -7,5 +7,18 @@ import java.util.Map;
 
 @Data
 public class Players {
-    public static final Map<String, Player> ALL = new HashMap<>();
+    private final Map<String, Player> all = new HashMap<>();
+
+    public void save(Player player){
+        all.put(player.getName(), player);
+    }
+
+    public Player getPlayer(String name){
+        return all.get(name);
+    }
+
+    public boolean isContains(String name){
+        return all.containsKey(name);
+    }
 }
+

@@ -9,4 +9,8 @@ public class Player {
     String name;
     String ip;
     int games;
+
+    public void incrementGames (){
+        games++;
+    }
 }
