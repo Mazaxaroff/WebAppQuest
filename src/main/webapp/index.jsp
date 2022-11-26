@@ -42,10 +42,17 @@
     </h2>
     <h4 class=" text"><%= introduce%>
     </h4>
-    <form class="form" action="/" name="registration">
-        <input type="text" id="input_name" name="name" required size="20" maxlength="20">
-        <input type="button" value="Присоединиться" onclick='location.href ="/quest"'>
+    <form class="form" action="${pageContext.request.contextPath}/index" name="registration" method="post">
+        <input type="text" name="name" required size="20" maxlength="20">
+        <input type="submit" value="Присоединиться">
     </form>
 </div>
+<script>
+    window.onload = () => {
+        document.forms.registration.addEventListener('submit', () => {
+            localStorage.setItem('nameOfPlayer', document.forms.registration.name.value)
+        })
+    }
+</script>
 </body>
 </html>
