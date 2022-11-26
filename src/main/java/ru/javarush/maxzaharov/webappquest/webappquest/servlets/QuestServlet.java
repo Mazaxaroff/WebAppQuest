@@ -47,7 +47,7 @@ public class QuestServlet extends HttpServlet {
 
         req.setAttribute("finish", finish);
         req.setAttribute("countOfGames", player.getGames());
-        getServletContext().getRequestDispatcher("/quest.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/quest.jsp").forward(req, resp);
 
     }
 
