@@ -1,16 +1,21 @@
-package ru.javarush.maxzaharov.webappquest.webappquest;
+package ru.javarush.maxzaharov.webappquest;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import java.util.HashMap;
 
 @WebListener
 public class AppContextListener implements ServletContextListener {
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
-        context.setAttribute("players", new Players());
+        context.setAttribute("players", new Players(new HashMap<>()));
+
+
     }
 
 }

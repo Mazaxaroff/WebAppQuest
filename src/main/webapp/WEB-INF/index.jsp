@@ -17,12 +17,13 @@
     <title>Hello</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body{
+        body {
             font-family: "Comic Sans MS";
-            background: rgb(2,0,36);
-            background: linear-gradient(225deg, rgba(2,0,36,1) 0%, rgba(10,58,144,1) 33%, rgba(0,212,255,1) 100%);
+            background: rgb(2, 0, 36);
+            background: linear-gradient(225deg, rgba(2, 0, 36, 1) 0%, rgba(10, 58, 144, 1) 33%, rgba(0, 212, 255, 1) 100%);
             min-height: 100vh;
         }
+
         .content {
             padding: 1rem
         }

@@ -1,7 +1,9 @@
-package ru.javarush.maxzaharov.webappquest.webappquest.servlets;
+package ru.javarush.maxzaharov.webappquest.servlets;
 
-import ru.javarush.maxzaharov.webappquest.webappquest.Player;
-import ru.javarush.maxzaharov.webappquest.webappquest.Players;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import ru.javarush.maxzaharov.webappquest.Player;
+import ru.javarush.maxzaharov.webappquest.Players;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -15,7 +17,10 @@ import java.io.IOException;
 
 @WebServlet(name = "indexServlet", value = "/index")
 public class IndexServlet extends HttpServlet {
+    private static final Logger LOGGER = LogManager.getLogger(IndexServlet.class);
+
     private Players players;
+
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -30,13 +35,14 @@ public class IndexServlet extends HttpServlet {
         String nameOfPlayer = req.getParameter("name");
 
         HttpSession session = req.getSession();
-        if (session.getAttribute("player") !=null){
+        if (session.getAttribute("player") != null) {
             resp.sendRedirect("quest");
             return;
         }
 
+
         Player player;
-        if (players.isContains(nameOfPlayer)){
+        if (players.isContains(nameOfPlayer)) {
             player = players.getPlayer(nameOfPlayer);
         } else {
             player = Player.builder()
@@ -45,6 +51,7 @@ public class IndexServlet extends HttpServlet {
                     .games(0)
                     .build();
             players.save(player);
+            LOGGER.info("Player " + player.getName() + " was created");
         }
 
         session.setAttribute("player", player);

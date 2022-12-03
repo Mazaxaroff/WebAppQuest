@@ -1,4 +1,4 @@
-package ru.javarush.maxzaharov.webappquest.webappquest.servlets;
+package ru.javarush.maxzaharov.webappquest.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

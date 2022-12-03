@@ -1,4 +1,4 @@
-package ru.javarush.maxzaharov.webappquest.webappquest;
+package ru.javarush.maxzaharov.webappquest;
 
 import lombok.Builder;
 import lombok.Data;

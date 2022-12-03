@@ -1,25 +1,25 @@
-package ru.javarush.maxzaharov.webappquest.webappquest;
+package ru.javarush.maxzaharov.webappquest;
 
 import java.util.List;
 
 public class Quest {
-   public Question winQuestion = Question.builder()
+    private Question winQuestion = Question.builder()
             .text("Тебя вернули домой! Победа!")
             .isWin(true)
             .build();
-   public Question lossQuestion1 = Question.builder()
+    private Question lossQuestion1 = Question.builder()
             .text("Ты отклонил вызов! Поражение!")
             .isLoose(true)
             .build();
-   public Question lossQuestion2 = Question.builder()
+    private Question lossQuestion2 = Question.builder()
             .text("Ты не пошел на переговоры! Поражение!")
             .isLoose(true)
             .build();
-   public Question lossQuestion3 = Question.builder()
+    private Question lossQuestion3 = Question.builder()
             .text("Твою ложь разоблачили! Поражение!")
             .isLoose(true)
             .build();
-   public Question whoAreYou = Question.builder()
+    private Question whoAreYou = Question.builder()
             .text("Ты поднялся на мостик. Ты кто?")
             .answers(List.of(
                     Answer.builder()
@@ -32,7 +32,7 @@ public class Quest {
                             .build()
             ))
             .build();
-   public Question doYouUpToCapitan = Question.builder()
+    private Question doYouUpToCapitan = Question.builder()
             .text("Ты принял вызов. Поднимаешься на мостик к капитану?")
             .answers(List.of(
                     Answer.builder()
@@ -45,7 +45,7 @@ public class Quest {
                             .build()
             ))
             .build();
-    public Question startQuestion = Question.builder()
+    private Question startQuestion = Question.builder()
             .text("Ты потерял память. Принять вызов НЛО?")
             .answers(List.of(
                     Answer.builder()
@@ -59,7 +59,7 @@ public class Quest {
             ))
             .build();
 
-    public Question getStartQuestion(){
+    public Question getStartQuestion() {
         return startQuestion;
     }
 }

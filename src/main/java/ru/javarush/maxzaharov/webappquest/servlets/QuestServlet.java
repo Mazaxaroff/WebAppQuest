@@ -1,7 +1,9 @@
-package ru.javarush.maxzaharov.webappquest.webappquest.servlets;
+package ru.javarush.maxzaharov.webappquest.servlets;
 
-
-import ru.javarush.maxzaharov.webappquest.webappquest.*;
+import ru.javarush.maxzaharov.webappquest.Answer;
+import ru.javarush.maxzaharov.webappquest.Player;
+import ru.javarush.maxzaharov.webappquest.Quest;
+import ru.javarush.maxzaharov.webappquest.Question;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -26,13 +28,16 @@ public class QuestServlet extends HttpServlet {
         super.init(config);
         currentQuestion = new Quest().getStartQuestion();
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 
         Player player = (Player) req.getSession().getAttribute("player");
         req.setAttribute("currentQuestion", currentQuestion.getText());
         req.setAttribute("ip", player.getIp());
         req.setAttribute("nameOfPlayer", player.getName());
+
 
         if (currentQuestion.isWin() || currentQuestion.isLoose()) {
             finish = true;
@@ -60,7 +65,7 @@ public class QuestServlet extends HttpServlet {
                     .getNextQuestion();
         } else {
             currentQuestion = new Quest().getStartQuestion();
-            finish=false;
+            finish = false;
         }
 
         resp.sendRedirect("quest");
