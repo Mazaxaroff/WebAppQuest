@@ -2,7 +2,6 @@ package ru.javarush.maxzaharov.webappquest;
 
 import lombok.Builder;
 import lombok.Data;
-import ru.javarush.maxzaharov.webappquest.Answer;
 
 import java.util.List;
 

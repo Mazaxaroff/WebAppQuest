@@ -2,12 +2,11 @@ package ru.javarush.maxzaharov.webappquest;
 
 import lombok.Data;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Data
 public class Players {
-    private Map<String, Player> allPlayers = new HashMap<>();
+    private Map<String, Player> allPlayers;
 
     public Players(Map<String, Player> map) {
         this.allPlayers = map;
