@@ -16,6 +16,6 @@ public class Player {
 
     public void incrementGames() {
         games++;
-        LOGGER.info("Player " + this.name + " is finished the game");
+        LOGGER.info("Player " + this.name + " is finished the game. Count of games - " + this.games);
     }
 }

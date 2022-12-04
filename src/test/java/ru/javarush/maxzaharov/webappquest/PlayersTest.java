@@ -29,8 +29,8 @@ class PlayersTest {
     }
 
     @Test
-    void test_save_whenPlayerIsNull(){
-        assertThrows(IllegalArgumentException.class, ()->allPlayers.save(null));
+    void test_save_whenPlayerIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> allPlayers.save(null));
     }
 
 
@@ -40,20 +40,22 @@ class PlayersTest {
         playerMap.put(player1.getName(), player1);
         assertEquals(player1, allPlayers.getPlayer(player1.getName()));
     }
+
     @Test
-    void test_getPlayer_whenNameOfPlayerIsNull(){
-        assertThrows(IllegalArgumentException.class, ()->allPlayers.getPlayer(null));
+    void test_getPlayer_whenNameOfPlayerIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> allPlayers.getPlayer(null));
     }
 
     @Test
     void test_isContains() {
-        Player player1 = new Player("first", "0.0.0.1", 0);
+        String name = "first";
+        Player player1 = new Player(name, "0.0.0.1", 0);
         playerMap.put(player1.getName(), player1);
-        assertEquals(true, allPlayers.isContains(player1.getName()));
+        assertEquals(true, allPlayers.isContains(name));
     }
 
     @Test
-    void test_isContains_whenNameOfPlayerIsNull(){
-        assertThrows(IllegalArgumentException.class, ()->allPlayers.isContains(null));
+    void test_isContains_whenNameOfPlayerIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> allPlayers.isContains(null));
     }
 }

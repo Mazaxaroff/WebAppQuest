@@ -1,9 +1,7 @@
 package ru.javarush.maxzaharov.webappquest.servlets;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import ru.javarush.maxzaharov.webappquest.service.InitializationService;
 import ru.javarush.maxzaharov.webappquest.Player;
-import ru.javarush.maxzaharov.webappquest.Players;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -17,16 +15,14 @@ import java.io.IOException;
 
 @WebServlet(name = "indexServlet", value = "/index")
 public class IndexServlet extends HttpServlet {
-    private static final Logger LOGGER = LogManager.getLogger(IndexServlet.class);
 
-    private Players players;
-
+    private InitializationService initializationService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         ServletContext servletContext = config.getServletContext();
-        players = (Players) servletContext.getAttribute("players");
+        initializationService = (InitializationService) servletContext.getAttribute("players");
     }
 
     @Override
@@ -40,23 +36,9 @@ public class IndexServlet extends HttpServlet {
             return;
         }
 
-
-        Player player;
-        if (players.isContains(nameOfPlayer)) {
-            player = players.getPlayer(nameOfPlayer);
-        } else {
-            player = Player.builder()
-                    .name(nameOfPlayer)
-                    .ip(req.getRemoteAddr())
-                    .games(0)
-                    .build();
-            players.save(player);
-            LOGGER.info("Player " + player.getName() + " was created");
-        }
-
+        Player player = initializationService.initOrCreatePlayer(nameOfPlayer, req.getRemoteAddr());
         session.setAttribute("player", player);
         resp.sendRedirect("quest");
     }
-
 
 }
