@@ -14,14 +14,6 @@ public class InitializationService {
     }
 
     public Player initOrCreatePlayer(String nameOfPlayer, String ip) {
-        if (nameOfPlayer == null) {
-            LOGGER.error("name of player is null.");
-            throw new IllegalArgumentException("name of player can't be null.");
-        }
-        if (ip == null) {
-            LOGGER.error("ip of player is null.");
-            throw new IllegalArgumentException("ip of player can't be null.");
-        }
         if (players.isContains(nameOfPlayer)) {
             return players.getPlayer(nameOfPlayer);
         } else {
